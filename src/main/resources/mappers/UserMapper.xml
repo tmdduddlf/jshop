@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jbook.jshop.mapper.UserMapper">
+
+    <!-- 사용자 데이터 조회 -->
+    <select id="findAllUsers" resultType="jbook.jshop.dto.UserDto">
+        SELECT id, name FROM TEST ORDER BY ID
+    </select>
+
+    <!-- 사용자 추가 -->
+    <insert id="insertUser" parameterType="jbook.jshop.dto.UserDto">
+        INSERT INTO TEST (id, name)
+        VALUES (#{id}, #{name});
+    </insert>
+
+    <!-- /사용자 업데이트 -->
+    <update id="updateUser" parameterType="jbook.jshop.dto.UserDto">
+        UPDATE TEST
+        SET name = #{name}
+        WHERE id = #{id};
+    </update>
+
+    <!-- // ID로 존재 여부 확인 -->
+    <select id="existsById" resultType="boolean" parameterType="String">
+        SELECT CASE
+                   WHEN COUNT(*) > 0 THEN TRUE
+                   ELSE FALSE
+                   END
+        FROM TEST
+        WHERE id = #{id};
+    </select>
+
+</mapper>
