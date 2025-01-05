@@ -26,6 +26,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
+	implementation("org.json:json:20231013")
+//	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 //	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// Spring Boot Starter JDBC (JDBC를 사용할 수 있도록 설정)
 //	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
