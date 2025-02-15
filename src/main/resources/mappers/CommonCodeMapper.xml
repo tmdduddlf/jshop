@@ -2,16 +2,16 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.mapper.CommonCodeMapper">
+<mapper namespace="jbook.jshop.mapper.CommonCodeMapper">
 
-    <select id="findAll" resultType="com.example.domain.CommonCode">
+    <select id="findAll" resultType="jbook.jshop.dto.CommonCodeDto">
         SELECT CODE_ID AS codeId,
                CODE_VALUE AS codeValue,
                DESCRIPTION
         FROM COMMON_CODE
     </select>
 
-    <select id="findById" parameterType="string" resultType="com.example.domain.CommonCode">
+    <select id="findById" parameterType="string" resultType="jbook.jshop.dto.CommonCodeDto">
         SELECT CODE_ID AS codeId,
                CODE_VALUE AS codeValue,
                DESCRIPTION
@@ -19,12 +19,12 @@
         WHERE CODE_ID = #{codeId}
     </select>
 
-    <insert id="insert" parameterType="com.example.domain.CommonCode">
+    <insert id="insert" parameterType="jbook.jshop.dto.CommonCodeDto">
         INSERT INTO COMMON_CODE (CODE_ID, CODE_VALUE, DESCRIPTION)
         VALUES (#{codeId}, #{codeValue}, #{description})
     </insert>
 
-    <update id="update" parameterType="com.example.domain.CommonCode">
+    <update id="update" parameterType="jbook.jshop.dto.CommonCodeDto">
         UPDATE COMMON_CODE
         SET CODE_VALUE = #{codeValue},
             DESCRIPTION = #{description}

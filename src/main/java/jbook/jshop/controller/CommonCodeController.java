@@ -1,4 +1,3 @@
-// src/main/java/com/example/controller/CommonCodeController.java
 package jbook.jshop.controller;
 
 import jbook.jshop.service.CommonCodeService;
