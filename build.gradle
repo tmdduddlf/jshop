@@ -33,6 +33,7 @@ dependencies {
 //	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	// MyBatis Spring Boot Starter (MyBatis를 Spring Boot와 연동하는 의존성)
 //	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'

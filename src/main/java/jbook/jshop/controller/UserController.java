@@ -37,6 +37,17 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
+//    @GetMapping("/test")
+    @GetMapping("/liveness")
+    public ResponseEntity<ApiResponse> liveness() {
+        ApiResponse response = new ApiResponse();
+        response.setCode(0);
+        response.setData(userService.liveness());
+        response.setMessage("");
+        return ResponseEntity.ok(response);
+    }
+
+
 
 //    @PostMapping("/create-table")
 //    public String createTable() {

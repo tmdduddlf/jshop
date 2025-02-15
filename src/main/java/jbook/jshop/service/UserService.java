@@ -2,6 +2,7 @@ package jbook.jshop.service;
 
 import jbook.jshop.dto.UserDto;
 import jbook.jshop.mapper.UserMapper;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,19 @@ public class UserService {
             } else {
                 userMapper.insertUser(userDto); // 새로운 사용자 삽입
             }
+        }
+    }
+
+    public String liveness() {
+        String result = "success";
+        try {
+            if(StringUtils.equals(result, "success")) {
+                int number = Integer.parseInt(result);
+//                throw new RuntimeException("강제 익셉션 발생!");
+            }
+            return result;
+        } catch (Exception e) {
+            throw new RuntimeException("[in service] ", e);
         }
     }
 }

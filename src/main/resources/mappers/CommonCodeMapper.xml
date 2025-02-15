@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.CommonCodeMapper">
+
+    <select id="findAll" resultType="com.example.domain.CommonCode">
+        SELECT CODE_ID AS codeId,
+               CODE_VALUE AS codeValue,
+               DESCRIPTION
+        FROM COMMON_CODE
+    </select>
+
+    <select id="findById" parameterType="string" resultType="com.example.domain.CommonCode">
+        SELECT CODE_ID AS codeId,
+               CODE_VALUE AS codeValue,
+               DESCRIPTION
+        FROM COMMON_CODE
+        WHERE CODE_ID = #{codeId}
+    </select>
+
+    <insert id="insert" parameterType="com.example.domain.CommonCode">
+        INSERT INTO COMMON_CODE (CODE_ID, CODE_VALUE, DESCRIPTION)
+        VALUES (#{codeId}, #{codeValue}, #{description})
+    </insert>
+
+    <update id="update" parameterType="com.example.domain.CommonCode">
+        UPDATE COMMON_CODE
+        SET CODE_VALUE = #{codeValue},
+            DESCRIPTION = #{description}
+        WHERE CODE_ID = #{codeId}
+    </update>
+
+    <delete id="delete" parameterType="string">
+        DELETE FROM COMMON_CODE
+        WHERE CODE_ID = #{codeId}
+    </delete>
+
+</mapper>
