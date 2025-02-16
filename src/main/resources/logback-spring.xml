@@ -20,9 +20,16 @@
     </appender>
     -->
 
+    <!-- syiif 로그를 DB에 저장할 Appender -->
+    <appender name="SYIIF_DB_APPENDER" class="jbook.jshop.log.appender.SyiifDbAppender">
+        <!-- syiif 키워드 필터 -->
+        <filter class="jbook.jshop.filter.SyiifKeywordFilter"/>
+    </appender>
+
     <!-- 기본 로그 레벨 설정 -->
     <root level="debug">
         <appender-ref ref="CONSOLE" />
+        <!--<appender-ref ref="SYIIF_DB_APPENDER"/>-->
     </root>
 
     <!-- MyBatis 로그 설정 -->

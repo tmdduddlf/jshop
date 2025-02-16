@@ -36,6 +36,7 @@ dependencies {
 	implementation 'org.apache.commons:commons-lang3:3.12.0'
 	implementation 'org.springframework.boot:spring-boot-starter-aop:3.0.3'
 	implementation 'commons-io:commons-io:2.11.0'
+	implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'

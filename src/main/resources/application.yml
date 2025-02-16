@@ -17,6 +17,7 @@ mybatis:
   type-aliases-package: jbook.jshop.dto  # 도메인 클래스 위치 (선택 사항)
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
 
 logging:
   level:
