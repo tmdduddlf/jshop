@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Aspect
 @Component
-public class EaiCommAspect {
+public class AspectSample {
 
     //타겟 메서드 : jbook.jshop.service.FeatureToggleService.isEnabled
 
