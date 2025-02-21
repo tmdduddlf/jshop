@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jbook.jshop.mapper.AgreementConsentMapper">
+
+    <insert id="insert" parameterType="jbook.jshop.dto.AgreementConsentDto">
+        INSERT INTO AGREEMENT_CONSENT
+            (ID, JSESSION, SELECTED_ITEMS, CREATED_AT, UPDATED_AT)
+        VALUES
+            (NEXT VALUE FOR SEQ_AGREEMENT_CONSENT, #{jsession}, #{selectedItems}, CURRENT_TIMESTAMP, NULL)
+    </insert>
+
+    <select id="select" parameterType="java.lang.Long" resultType="jbook.jshop.dto.AgreementConsentDto">
+        SELECT
+            ID AS id,
+            JSESSION AS jsession,
+            SELECTED_ITEMS AS selectedItems,
+            TO_CHAR(CREATED_AT, 'YYYY-MM-DD HH24:MI:SS') AS createdAt,
+            TO_CHAR(UPDATED_AT, 'YYYY-MM-DD HH24:MI:SS') AS updatedAt
+        FROM AGREEMENT_CONSENT
+        WHERE ID = #{id}
+    </select>
+
+    <select id="selectAll" resultType="jbook.jshop.dto.AgreementConsentDto">
+        SELECT
+            ID AS id,
+            JSESSION AS jsession,
+            SELECTED_ITEMS AS selectedItems,
+            TO_CHAR(CREATED_AT, 'YYYY-MM-DD HH24:MI:SS') AS createdAt,
+            TO_CHAR(UPDATED_AT, 'YYYY-MM-DD HH24:MI:SS') AS updatedAt
+        FROM AGREEMENT_CONSENT
+        ORDER BY ID DESC
+    </select>
+
+    <update id="update" parameterType="jbook.jshop.dto.AgreementConsentDto">
+        UPDATE AGREEMENT_CONSENT
+        SET
+            JSESSION = #{jsession},
+            SELECTED_ITEMS = #{selectedItems},
+            UPDATED_AT = CURRENT_TIMESTAMP
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        DELETE FROM AGREEMENT_CONSENT
+        WHERE ID = #{id}
+    </delete>
+
+</mapper>
