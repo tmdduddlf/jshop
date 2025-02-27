@@ -4,6 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="jbook.jshop.mapper.EdCodeMapper">
 
+    <select id="findAll" resultType="jbook.jshop.dto.EdCodeDto">
+        SELECT
+            ID,
+            CODE,
+            PARENT_CODE AS parentCode,
+            CODE_NM     AS codeNm,
+            TOGGLE_VALUE AS toggleValue,
+            VALIDITY_DATE AS validityDate
+        FROM ED_CODE
+    </select>
+
     <select id="findByCode" parameterType="string" resultType="jbook.jshop.dto.EdCodeDto">
         SELECT
             ID,

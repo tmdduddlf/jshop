@@ -6,12 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class FeatureToggleService {
 
     @Autowired
     private EdCodeMapper mapper;
+
+    public List<EdCodeDto> findAll() {
+        return mapper.findAll();
+    }
+
+    public EdCodeDto findByCode(String code) {
+        return mapper.findByCode(code);
+    }
 
     /**
      * 기능 토글 상태 확인
