@@ -26,4 +26,22 @@ async function findByCode(code:string) {
   dataList.value = [data];
 }
 ```
+
+4) 마운티드 되고 나서 랜더링 시키기
+ - await nextTick();
+```
+// 템플릿 전체가 렌더링된 후 실행
+await nextTick();
+// 여기서 activeTab 컴포넌트도 모두 렌더링됨
+console.log('템플릿과 동적 컴포넌트 모두 렌더링 완료!');
+```
+
+5) 부모에서 데이터 완전히 세팅된 후 자식컴포넌트 랜더링하기
+ - v-if 사용해서 데이터 세팅된 후 컴포넌트 발동시키기
+```
+<!-- 탭 컴포넌트 -->
+<div class="tab-content" v-if="dataList && dataList.length">
+  <component :is="activeTab" />
+</div>
+```
 ---
