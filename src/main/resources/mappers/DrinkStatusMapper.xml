@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jbook.jshop.mapper.DrinkStatusMapper">
+    <select id="findByDateRange" resultType="jbook.jshop.dto.DrinkStatus">
+        SELECT ID,
+               STATUS_DATE AS statusDate,
+               DRANK,
+               NOTES,
+               REG_DATE AS regDate,
+               UPD_DATE AS updDate
+        FROM DRINK_STATUS
+        WHERE STATUS_DATE BETWEEN #{startDate} AND #{endDate}
+        ORDER BY STATUS_DATE
+    </select>
+
+    <select id="findById" parameterType="long" resultType="jbook.jshop.dto.DrinkStatus">
+        SELECT ID,
+               STATUS_DATE AS statusDate,
+               DRANK,
+               NOTES,
+               REG_DATE AS regDate,
+               UPD_DATE AS updDate
+        FROM DRINK_STATUS
+        WHERE ID = #{id}
+    </select>
+
+    <insert id="insert" parameterType="jbook.jshop.dto.DrinkStatus">
+        INSERT INTO DRINK_STATUS (ID, STATUS_DATE, DRANK, NOTES, REG_DATE, UPD_DATE)
+        VALUES (DRINK_STATUS_SEQ.NEXTVAL, #{statusDate}, #{drank}, #{notes}, #{regDate}, #{updDate})
+    </insert>
+
+    <update id="update" parameterType="jbook.jshop.dto.DrinkStatus">
+        UPDATE DRINK_STATUS
+        SET STATUS_DATE = #{statusDate},
+            DRANK = #{drank},
+            NOTES = #{notes},
+            UPD_DATE = #{updDate}
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="delete" parameterType="long">
+        DELETE FROM DRINK_STATUS WHERE ID = #{id}
+    </delete>
+</mapper>
