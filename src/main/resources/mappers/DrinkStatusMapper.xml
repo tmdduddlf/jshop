@@ -27,7 +27,7 @@
 
     <insert id="insert" parameterType="jbook.jshop.dto.DrinkStatus">
         INSERT INTO DRINK_STATUS (ID, STATUS_DATE, DRANK, NOTES, REG_DATE, UPD_DATE)
-        VALUES (DRINK_STATUS_SEQ.NEXTVAL, #{statusDate}, #{drank}, #{notes}, #{regDate}, #{updDate})
+        VALUES (NEXT VALUE FOR DRINK_STATUS_SEQ, #{statusDate}, #{drank}, #{notes}, #{regDate}, #{updDate})
     </insert>
 
     <update id="update" parameterType="jbook.jshop.dto.DrinkStatus">
